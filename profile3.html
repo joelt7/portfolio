@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  Joel - Profile</title>
+  <!-- Google Fonts for Modern Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* General reset and modern typography */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-color: #0d0d1d; /* Blue-black background */
+      color: #fff; /* White text */
+      overflow-x: hidden;
+    }
+
+    /* Full-screen hero section */
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #00274d, #1a1a2e);
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+
+    /* About section with scroll animation */
+    .about {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #1a1a2e;
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .about.scrolled h2 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 1rem auto;
+      font-size: 1.2rem;
+    }
+
+    /* Buttons Styling */
+    .buttons {
+      margin: 2rem 0;
+    }
+
+    .buttons button {
+      background-color: #00509e;
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background-color: #0074d9;
+      transform: scale(1.05);
+    }
+
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #333;
+    }
+
+    footer p {
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+
+    /* Profile Image Styling */
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Responsive Layout for Mobile */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .about h2 {
+        font-size: 2rem;
+      }
+
+      .about p {
+        font-size: 1rem;
+      }
+
+      .buttons button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      footer {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header>
+    <h1> Joel </h1>
+    <p>Web Developer | Innovator</p>
+  </header>
+
+  <!-- About Me Section -->
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p id="description">
+      Hello! My name is Joel Tefera. I am passionate about web development, creating efficient solutions, and continuously learning new technologies. Welcome to my personal profile page!
+    </p>
+    <div class="buttons">
+      <button onclick="showDescription('developer')">Web Developer</button>
+      <button onclick="showDescription('innovator')">Innovator</button>
+    </div>
+  </section>
+
+  <!-- Footer with Contact Info -->
+  <footer>
+    <div class="profile-image">
+        <img src="profile.jpg..jpg" alt="Joel Tefera">
+      </div>
+    <h3>Contact</h3>
+    <p>Email: joeltefera@gmail.com</p>
+    <p>Phone: 0922974507</p>
+    <p>GitHub: <a href="https://github.com/joelt7" target="_blank" style="color: #fff;">github.com/joelt7</a></p>
+  
+  </footer>
+  <script>
+    // Scroll effect for h2
+    const aboutSection = document.querySelector('.about');
+    window.addEventListener('scroll', () => {
+      const sectionPosition = aboutSection.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+      if (sectionPosition < screenPosition) {
+        aboutSection.classList.add('scrolled');
+      }
+    });
+
+    // Dynamic descriptions for buttons
+    function showDescription(role) {
+      const description = document.getElementById('description');
+      if (role === 'developer') {
+        description.textContent = 'As a Web Developer, I specialize in creating efficient, scalable, and user-friendly websites and web applications using modern technologies like HTML, CSS, and JavaScript.';
+      } else if (role === 'innovator') {
+        description.textContent = 'As an Innovator, I strive to think outside the box, exploring new ideas and approaches to solve complex problems and create new opportunities.';
+      }
+    }
+  </script>
+
+</body>
+</html>
